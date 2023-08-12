@@ -63,7 +63,7 @@ function handleSignUp(e){
     e.target.confirmPassword.value = ''
 
     if(user.password != user.confirmPassword){
-        alert("confirmed password is not matching")
+        alert("Confirmed password is not matching")
     }
     else{
         if(getUser(user)!=undefined){
@@ -91,7 +91,7 @@ function handleSignIn(e){
     registeredUser = getUser(user)
     
     if(registeredUser == undefined){
-        alert('user is not exists')
+        alert('user does not exists')
     }
     else{
         if(registeredUser.password == user.password){
