@@ -1,0 +1,259 @@
+body{
+    height: 100vh;
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.background{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+}
+
+.background-image{
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+    position: absolute;
+    opacity: 1;
+    transition: opacity .5s ;
+}
+
+.container{
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 10%;
+    height: 40%;
+    background-color: rgb(47,53,75);
+    color: rgb(251, 238, 218);
+    opacity: .9;
+}
+
+#signin{
+    background-color: rgb(192, 197, 184);
+    color: #252525;
+    opacity: .9;
+}
+
+input{
+    width: 250px    ;
+    background-color: transparent;
+    border: 0px solid  #505050;
+    border-bottom-width: 2px;
+    outline: none;
+    font-size: medium;
+    color: white;
+    padding-left: 5px;
+}
+
+#signin input{
+    color: black;
+}
+
+form button{
+    margin-top: 50px;
+    min-height: 40px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    background-color: transparent;
+    outline: none;
+    border-radius: 16px;
+    border: 2px blanchedalmond solid; 
+    transition: background-color .5s solid;
+    color: blanchedalmond;;
+    transition: background-color .5s;
+    font-weight: 600;
+    z-index: 1;
+    overflow: hidden;
+   position: relative;
+}
+
+#signin button{
+    border: 2px #252525 solid; 
+    color: #252525;
+}
+
+form button::after{
+    position: absolute;
+    bottom: 0px;
+    left: -10px;
+    content: '';
+    height: 0%;
+    width: 110%;
+    background-color: blanchedalmond;
+    transition: background-color .5s;
+    outline: none;
+    border-radius: 16px;
+    border: 2px blanchedalmond; 
+    transition: background-color .5s solid;
+    color: blanchedalmond;
+    transition: background-color .5s;
+    z-index: -1;
+    opacity: 0;
+    transition: height .2s, width .2s;
+}
+
+#signin button::after{
+    background-color: #252525;
+}
+
+form button:hover{
+    color: black;
+}
+
+#signin button:hover{
+    color: blanchedalmond;
+}
+
+form button:hover::after{
+    opacity: 1;
+    height: 100%;
+}
+
+form button:not(:hover)::after{
+    opacity: 1;
+    height: 0%;
+}
+
+form button:active{
+    color: coral;
+}
+
+#signin button:active{
+    color: coral;
+}
+
+.block{
+    background-color: rgb(247, 134, 93);
+    height: 0%;
+    width: 0%;
+    position: absolute;
+    z-index: 3;
+    transition: left .5s, top .5s, color .5s, background .5s, color .5s;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: rgba(37, 37, 37,.5);
+    padding-bottom: 50px;
+}
+
+svg{
+    transition: stroke .5s;
+}
+
+.right{
+    margin-right: -20px;
+}
+
+.left{
+    margin-left: -20px;
+}
+
+
+
+.welcome{
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    display: none;
+    flex-direction: row;
+    position: fixed;
+    background-color: transparent;
+    z-index: 20;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.plate{
+    width: 10%;
+    height: 0%;
+    transition: height 1s .5s;
+    background-color: burlywood;
+}
+
+.text{
+    position: absolute;
+    transition: opacity .5s;
+    color: burlywood;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.heading{
+    margin-top: -20%;
+}
+
+.text h1{
+    opacity: 0;
+}
+
+
+@media screen and (max-width: 720px) {
+
+    .container{
+        flex-direction: column;
+    }
+
+    form{
+      width: 100%;
+      height: 50%;
+      justify-content: center;
+      align-items: center;
+      opacity: 1;
+      background-color: rgba(37, 37, 37,.7);
+    }
+
+    #signin{
+        opacity: 1;
+        background-color: rgba(255, 235, 205,.7);
+    }
+    .background{
+       display: flex;
+       flex-direction: column;
+    }
+    .background-image{
+        height: 50%;
+    }
+    #dark-back{
+        bottom: 0px;
+    }
+}
+
+.welcome-form{
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+.block img{
+    width: inherit;
+    height: inherit
+}
+
+.block h1{
+    margin: 0;
+}

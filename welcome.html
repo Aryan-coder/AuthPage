@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background" >
+        <img id="light-back" class="background-image" src="assets/day.png" />
+    </div>
+    <div class="container" >
+        <form class="welcome-form">
+            <h1>Welcome!</h1>
+            <h1 id="name"></h1>
+            <h1 style="font-size: 25px;" >You have been logged in Successfully <span class="smile">:)</span></h1>
+        </form>
+    </div>
+<script>
+    const params = []
+    for(let param of new URLSearchParams(window.location.href).values()){
+        params.push(param)
+    }
+    document.getElementById('name').innerText = params[0]==undefined ? ' ' : params[0] +' '+params[1]==undefined ? ' ' : params[0]
+</script>
+</body>
+</html>
