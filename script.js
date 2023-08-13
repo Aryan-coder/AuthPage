@@ -127,6 +127,6 @@ function setUser(user){
 
 function showWelcome(){
     const [firstName, lastName] = registeredUser.name.split(' ')
-    window.location.href = `/welcome.html?firstName=${firstName}&lastName=${lastName}`
+    window.location.href = `https://aryan-coder.github.io/AuthPageWelcome?firstName=${firstName}&lastName=${lastName}`
 }
 
