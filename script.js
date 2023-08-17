@@ -18,7 +18,10 @@ function changeTheme(){
 addEventListener('resize', (e)=>{
     initializeBlock()
     toggle = !toggle    
-    moveBlock()
+    moveBlock() 
+    if(screen.width < 800){
+        mobileView()
+    }
 })   
 
 // Positioning block
@@ -38,7 +41,7 @@ block.addEventListener('click', e=>{
 moveBlock()
 function moveBlock(){
     block.style.left = forms[toggle ? 0 : 1].getClientRects()[0].left+'px'
-    block.style.top = forms[toggle ? 1 : 0].getClientRects()[0].top+'px'
+    block.style.top = forms[toggle ? 0 : 1].getClientRects()[0].top+'px'
     block.innerHTML =  iconSVG[toggle ? 0 : 1] 
     toggle = !toggle
 }
@@ -63,7 +66,7 @@ function handleSignUp(e){
     e.target.confirmPassword.value = ''
 
     if(user.password != user.confirmPassword){
-        alert("Confirmed password is not matching")
+        alert("confirmed password is not matching")
     }
     else{
         if(getUser(user)!=undefined){
@@ -91,7 +94,7 @@ function handleSignIn(e){
     registeredUser = getUser(user)
     
     if(registeredUser == undefined){
-        alert('user does not exists')
+        alert('user is not exists')
     }
     else{
         if(registeredUser.password == user.password){
@@ -127,6 +130,27 @@ function setUser(user){
 
 function showWelcome(){
     const [firstName, lastName] = registeredUser.name.split(' ')
-    window.location.href = `https://aryan-coder.github.io/AuthPageWelcome?firstName=${firstName}&lastName=${lastName}`
+    window.location.href = `/welcome.html?firstName=${firstName}&lastName=${lastName}`
 }
 
+//https://filecrypt.co/Container/268FDFA5E3.html
+
+screen.width<800 && mobileView()
+function mobileView(){
+    const ptags = document.getElementsByClassName('switch-page')
+    const switchButtons =  document.getElementsByClassName('switch-button')
+    toggle = !toggle
+    changeTheme()
+    for(let ptag of ptags){
+        ptag.style.display = 'flex'
+    }
+    for(let switchButton of switchButtons){
+        switchButton.addEventListener('click',()=>{
+            forms[toggle ? 0 : 1].style.display = 'none'
+            forms[toggle ? 1 : 0].style.display = 'flex'
+            forms[1].style.opacity = toggle ? 1 : 0;
+            toggle = !toggle
+            changeTheme()
+        })
+    }
+}
